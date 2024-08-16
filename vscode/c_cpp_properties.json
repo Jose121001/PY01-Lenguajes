@@ -1,0 +1,18 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/**",         // Incluye todas las subcarpetas del proyecto
+                "${workspaceFolder}/cJSON",     // Incluye la carpeta cJSON
+                "${workspaceFolder}"            // Incluye la carpeta raíz
+            ],
+            "defines": [],
+            "compilerPath": "C:/MinGW/bin/gcc.exe",  // Cambia esta ruta si usas otro compilador
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "gcc-x64"
+        }
+    ],
+    "version": 4
+}
