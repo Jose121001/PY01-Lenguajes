@@ -5,10 +5,13 @@
             "includePath": [
                 "${workspaceFolder}/**",         // Incluye todas las subcarpetas del proyecto
                 "${workspaceFolder}/cJSON",     // Incluye la carpeta cJSON
-                "${workspaceFolder}"            // Incluye la carpeta raíz
+                "${workspaceFolder}/importacionDatos",
+                "${workspaceFolder}/procesamientoDatos",
+                "${workspaceFolder}/analisisDatos",
+                "${workspaceFolder}/estadisticas"
             ],
             "defines": [],
-            "compilerPath": "C:/MinGW/bin/gcc.exe",  // Cambia esta ruta si usas otro compilador
+            "compilerPath": "C:/MinGW/bin/gcc.exe",  // Ruta a tu compilador GCC
             "cStandard": "c11",
             "cppStandard": "c++17",
             "intelliSenseMode": "gcc-x64"

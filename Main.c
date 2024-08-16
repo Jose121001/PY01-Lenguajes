@@ -7,6 +7,10 @@
 #include <stdbool.h>
 #include <locale.h>
 
+// COMANDO PARA EJECUTAR: gcc main.c importacionDatos/importacionDatos.c procesamientoDatos/procesamientoDatos.c analisisDatos/analisisDatos.c estadisticas/estadisticas.c cJSON/cJSON.c -o output/mi_programa
+// DEBE CAMBIARSE CADA VEZ QUE SE AGREGUE UN .C O SE MUEVA UN ARCHIVO.
+// dESPUES PODREMOS USAR EL:  .\output\mi_programa.exe
+
 // Función para mostrar el banner de bienvenida
 void mostrarBanner()
 {
@@ -28,7 +32,8 @@ int menuPrincipal()
     printf("1. Importar Datos\n");
     printf("2. Procesar Datos\n");
     printf("3. Analizar Datos\n");
-    printf("4. Ver Estadísticas\n");
+    printf("4. Analizar Temporal\n");
+    printf("5. Ver Estadísticas\n");
     printf("0. Salir\n");
     printf("Seleccione una opción: ");
     scanf("%d", &opcion);
@@ -36,7 +41,7 @@ int menuPrincipal()
 }
 
 // // Función para manejar las opciones seleccionadas en el menú
-// bool subMenu(int opcion, importacionDatos *importacion, procesamientoDatos *procesamiento, analisisDatos *analisis, estadisticas *stats)
+// bool subMenu(int opcion, importacionDatos *importacion, procesamientoDatos *procesamiento, analisisDatos *analisis, analisisTemporales *temporal, estadisticas *stats)
 // {
 //     switch (opcion)
 //     {
@@ -50,6 +55,9 @@ int menuPrincipal()
 //         analizarDatos(analisis);
 //         break;
 //     case 4:
+//         realizarAnalisisTemporales(temporal);
+//         break;
+//     case 5:
 //         mostrarEstadisticas(stats);
 //         break;
 //     case 0:
@@ -67,7 +75,7 @@ int main()
     setlocale(LC_ALL, "spanish"); // Para manejar correctamente los caracteres especiales
     mostrarBanner();
 
-    // // Instancias de las estructuras para cada funcionalidad
+    // Instancias de las estructuras para cada funcionalidad
     // importacionDatos importacion;
     // procesamientoDatos procesamiento;
     // analisisDatos analisis;
