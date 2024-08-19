@@ -1,11 +1,9 @@
 #ifndef IMPORTACION_DATOS_H
 #define IMPORTACION_DATOS_H
 
-#include <stdio.h>
-#include <stdlib.h>
+#include <stdbool.h>
 
-// Definición de la estructura importacionDatos dinamica.
-
+// Estructura para manejar la importación de datos
 typedef struct
 {
     int idVenta;
@@ -18,7 +16,11 @@ typedef struct
     double totalLinea;
 } importacionDatos;
 
-// Declaración de la función para importar datos
-void importarDatos(importacionDatos *datos);
+// Declaración de funciones
+void importarDatosDesdeArchivo(importacionDatos *datos, const char *rutaArchivo);
+void opcionAgregarVenta(); // Función para insertar datos manualmente
+bool archivoExisteYNoVacio(const char *nombreArchivo);
+void agregarVenta(importacionDatos venta);
+void borrarContenidoVentasJson();
 
 #endif // IMPORTACION_DATOS_H
