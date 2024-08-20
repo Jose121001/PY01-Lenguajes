@@ -36,6 +36,33 @@ void mostrarBanner()
     printf("                   ########  #### ######## ##    ##    ###    ######## ##    ## #### ########   #######    \n");
 }
 
+// Función para validar que la entrada sea solo numérica
+
+// Función para validar que la entrada sea solo numérica
+int leerOpcionNumerica()
+{
+    int opcion;
+    int resultado;
+
+    while (true)
+    {
+        printf("Seleccione una opcion: ");
+        resultado = scanf("%d", &opcion);
+
+        // Si scanf no lee un número entero
+        if (resultado != 1)
+        {
+            printf("Entrada invalida. Por favor ingrese un numero.\n");
+            while (getchar() != '\n')
+                ; // Limpia el buffer de entrada
+        }
+        else
+        {
+            return opcion; // Retorna la opción válida
+        }
+    }
+}
+
 // Función para mostrar el menú principal y capturar la opción seleccionada
 int menuPrincipal()
 {
@@ -49,6 +76,7 @@ int menuPrincipal()
     printf("0. Salir\n");
     printf("Seleccione una opcion: ");
     scanf("%d", &opcion);
+    opcion = leerOpcionNumerica(); // Leer opción válida
     return opcion;
 }
 
@@ -63,7 +91,6 @@ void subMenuImportacionDatos()
 
     while (continuar)
     {
-
         printf("\n--- Submenu de Importacion de Datos ---\n");
         printf("1. Insertar datos manualmente\n");
         printf("2. Importar datos desde un archivo JSON\n");
@@ -71,6 +98,7 @@ void subMenuImportacionDatos()
         printf("0. Volver al menu principal\n");
         printf("Seleccione una opcion: ");
         scanf("%d", &opcion);
+        opcion = leerOpcionNumerica(); // Leer opción válida
         switch (opcion)
         {
         case 1:
@@ -83,6 +111,44 @@ void subMenuImportacionDatos()
             break;
         case 3:
             borrarContenidoVentasJson();
+            break;
+        case 0:
+            continuar = false;
+            break;
+        default:
+            printf("Opcion no valida. Intente de nuevo.\n");
+            break;
+        }
+    }
+}
+
+void subMenuProcesamientoDatos()
+{
+    int opcion;
+    bool continuar = true;
+
+    // Declaración de la variable importacion
+    // importacionDatos importacion;
+
+    while (continuar)
+    {
+
+        printf("\n--- Submenu de Procesamiento de Datos ---\n");
+        printf("1. Completar datos faltantes\n");
+        printf("2. Eliminar datos duplicados. \n");
+        printf("0. Volver al menu principal\n");
+        printf("Seleccione una opcion: ");
+        scanf("%d", &opcion);
+        opcion = leerOpcionNumerica(); // Leer opción válida
+        switch (opcion)
+        {
+        case 1:
+            printf("Se ingreso a la opcion 1");
+
+            break;
+        case 2:
+            borrarDuplicados();
+
             break;
         case 0:
             continuar = false;
@@ -112,7 +178,7 @@ int main()
             subMenuImportacionDatos();
             break;
         case 2:
-            // subMenuProcesamientoDatos();
+            subMenuProcesamientoDatos();
             break;
         case 3:
             // subMenuAnalisisDatos();
