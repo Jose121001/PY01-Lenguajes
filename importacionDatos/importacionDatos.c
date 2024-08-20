@@ -4,6 +4,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h> // Esto habilita el tipo bool en C
+#include <string.h>  // Para strlen, strtok, strdup
+#include <ctype.h>   // Para isdigit
 
 // Nombre del archivo JSON (declarado globalmente)
 const char *nombreArchivo = "../data/ventas.json";
@@ -50,7 +52,7 @@ void importarDatosDesdeArchivo(importacionDatos *datos, const char *rutaArchivo)
         double total = cJSON_GetObjectItem(venta, "total")->valuedouble;
 
         // Muestra los datos de la venta para verificar
-        printf("Venta ID: %d, Fecha: %s, Producto ID: %d, Producto: %s, Categoría: %s, Cantidad: %d, Precio Unitario: %.2f, Total: %.2f\n",
+        printf("\nVenta ID: %d, Fecha: %s, Producto ID: %d, Producto: %s, Categoría: %s, Cantidad: %d, Precio Unitario: %.2f, Total: %.2f\n\n",
                venta_id, fecha, producto_id, producto_nombre, categoria, cantidad, precio_unitario, total);
     }
 
@@ -134,56 +136,82 @@ void agregarVenta(importacionDatos venta)
 
     printf("Venta agregada correctamente.\n");
 }
+#include <string.h>
 
 // Funcion que me permite agregar los datos solicitados
+
+// Función que me permite agregar los datos solicitados
 void opcionAgregarVenta()
 {
     importacionDatos venta;
+    char bufferTemporal[1000]; // Buffer temporal para capturar la entrada del usuario
 
-    // Solicitar el identificador de la venta
+    // Solicita el identificador de la venta
     printf("Ingrese el identificador de la venta: ");
     scanf("%d", &venta.idVenta);
 
-    // Solicitar la fecha (formato yyyy-mm-dd)
-    printf("Ingrese la fecha (yyyy-mm-dd): ");
-    venta.fecha = (char *)malloc(11 * sizeof(char)); // Asignar memoria para la fecha
-    scanf("%s", venta.fecha);
+    // Solicita la fecha con validación
+    solicitarFecha(&venta);
 
-    // Solicitar el identificador del producto
+    // Solicita el identificador del producto
     printf("Ingrese el identificador del producto: ");
     scanf("%d", &venta.idProducto);
 
-    // Solicitar la descripción del producto
-    printf("Ingrese la descripcion del producto: ");
-    venta.descripcionProducto = (char *)malloc(200 * sizeof(char)); // Asignar memoria para la descripción
-    scanf(" %[^\n]", venta.descripcionProducto);                    // Leer hasta el salto de línea
-
-    // Solicitar la categoría del producto
-    printf("Ingrese la categoria del producto: ");
-    venta.categoria = (char *)malloc(100 * sizeof(char)); // Asignar memoria para la categoría
-    scanf(" %[^\n]", venta.categoria);                    // Leer hasta el salto de línea
-
-    // Solicitar la cantidad (puede ser opcional)
-    printf("Ingrese la cantidad (puede dejarlo vacio presionando Enter): ");
-    if (scanf("%d", &venta.cantidad) != 1)
+    // Solicita la descripción del producto con validación
+    do
     {
-        venta.cantidad = 0; // Valor por defecto si no se ingresa nada
-    }
+        printf("Ingrese la descripcion del producto (solo letras y espacios): ");
+        scanf(" %[^\n]", bufferTemporal); // Leer la entrada en el buffer temporal
+        if (!validarNombreYCategoria(bufferTemporal))
+        {
+            printf("Error: La descripcion solo puede contener letras y espacios.\n");
+        }
+    } while (!validarNombreYCategoria(bufferTemporal));
+    venta.descripcionProducto = (char *)malloc((strlen(bufferTemporal) + 1) * sizeof(char)); // Asigna memoria dinamica según la longitud de la entrda
+    strcpy(venta.descripcionProducto, bufferTemporal);                                       // Copia el contenido del buffer temporal a la memoria asignada
 
-    // Solicitar el precio unitario (puede ser opcional)
-    printf("Ingrese el precio unitario (puede dejarlo vacio presionando Enter): ");
-    if (scanf("%lf", &venta.precioUnitario) != 1)
+    // Solicita la categoría del producto con validación
+    do
     {
-        venta.precioUnitario = 0.0; // Valor por defecto si no se ingresa nada
-    }
+        printf("Ingrese la categoria del producto (solo letras y espacios): ");
+        scanf(" %[^\n]", bufferTemporal); // Lee la entrada en el buffer temporal
+        if (!validarNombreYCategoria(bufferTemporal))
+        {
+            printf("Error: La categoria solo puede contener letras y espacios.\n");
+        }
+    } while (!validarNombreYCategoria(bufferTemporal));
+    venta.categoria = (char *)malloc((strlen(bufferTemporal) + 1) * sizeof(char)); // Asigna memoria dinámica según la longitud de la entrada
+    strcpy(venta.categoria, bufferTemporal);                                       // Copia el contenido del buffer temporal a la memoria asignada
+
+    // Solicita la cantidad (puede ser opcional) con validación
+    do
+    {
+        printf("Ingrese la cantidad (ingrese 0 si no desea proporcionar una cantidad): ");
+        if (scanf("%d", &venta.cantidad) != 1 || !validarNumeroPositivo(venta.cantidad))
+        {
+            printf("Error: La cantidad debe ser un numero positivo.\n");
+            venta.cantidad = -1; // Establece un valor inválido temporalmente para continuar el bucle
+        }
+    } while (venta.cantidad < 0);
+
+    // Solicita el precio unitario (puede ser opcional) con validación
+    do
+    {
+        printf("Ingrese el precio unitario (ingrese 0 si no desea proporcionar una cantidad): ");
+        if (scanf("%lf", &venta.precioUnitario) != 1 || !validarPrecioUnitario(venta.precioUnitario))
+        {
+            printf("Error: El precio unitario debe ser un numero positivo.\n");
+            venta.precioUnitario = -1.0; // Establecer un valor inválido temporalmente para continuar el bucle
+        }
+    } while (venta.precioUnitario < 0.0);
 
     // Calcular el total de línea
     venta.totalLinea = venta.cantidad * venta.precioUnitario;
 
-    // Llamar a la función para agregar la venta
+    // Llama a la función para agregar la venta
     agregarVenta(venta);
 
-    // Liberar la memoria asignada
+    // Liberacion de memoria
     free(venta.fecha);
     free(venta.descripcionProducto);
     free(venta.categoria);
@@ -205,4 +233,95 @@ void borrarContenidoVentasJson()
     fclose(archivo);
 
     printf("El contenido de ventas.json ha sido borrado.\n");
+}
+/////////////////////////////////////////Validaciones de entrada////////////////////////////////////////
+
+// Función para validar la fecha en formato yyyy-mm-dd
+bool validarFecha(const char *fecha)
+{
+    // Verifica la longitud exacta de la cadena
+    if (strlen(fecha) != 10)
+    {
+        return false;
+    }
+
+    // Verifica que los caracteres estén en el formato correcto
+    for (int i = 0; i < 10; i++)
+    {
+        if (i == 4 || i == 7)
+        {
+            if (fecha[i] != '-') // Las posiciones 4 y 7 deben ser guiones
+            {
+                return false;
+            }
+        }
+        else
+        {
+            if (!isdigit(fecha[i])) // El resto deben ser números
+            {
+                return false;
+            }
+        }
+    }
+
+    // Validación adicional para asegurar que los valores no sean exagerados
+    int anio = atoi(strtok(strdup(fecha), "-"));
+    int mes = atoi(strtok(NULL, "-"));
+    int dia = atoi(strtok(NULL, "-"));
+
+    if (anio < 1900 || anio > 2100)
+        return false; // Rango de años válido
+    if (mes < 1 || mes > 12)
+        return false; // Mes válido
+    if (dia < 1 || dia > 31)
+        return false; // Día válido
+
+    return true;
+}
+
+// Función para solicitar la fecha y validarla
+void solicitarFecha(importacionDatos *venta)
+{
+    bool fechaValida = false;
+
+    while (!fechaValida)
+    {
+        printf("Ingrese la fecha (yyyy-mm-dd): ");
+        venta->fecha = (char *)malloc(11 * sizeof(char)); // Asignar memoria para la fecha
+        scanf("%s", venta->fecha);
+
+        // Validar la fecha ingresada
+        if (validarFecha(venta->fecha))
+        {
+            fechaValida = true;
+        }
+        else
+        {
+            printf("Fecha inválida. Asegurese de que sigue el formato yyyy-mm-dd y que los valores son validos.\n");
+            free(venta->fecha); // Libera la memoria si la fecha no es válida
+        }
+    }
+}
+// Valida que la entrada de los string sean correctas
+bool validarNombreYCategoria(const char *entrada)
+{
+    for (int i = 0; entrada[i] != '\0'; i++)
+    {
+        if (!isalpha(entrada[i]) && entrada[i] != ' ')
+        {
+            // La entrada contiene algo que no es letra ni espacio
+            return false;
+        }
+    }
+    return true;
+}
+// Valida que la entrada no sea negativos
+bool validarNumeroPositivo(int numero)
+{
+    return numero >= 0; // Solo números no negativos
+}
+// Valida que la entrada no sea negativos
+bool validarPrecioUnitario(double precio)
+{
+    return precio >= 0.0; // Solo números no negativos
 }

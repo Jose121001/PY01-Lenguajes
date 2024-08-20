@@ -16,11 +16,17 @@ typedef struct
     double totalLinea;
 } importacionDatos;
 
-// Declaración de funciones
+// Declaración de las funciones de validacion
+bool archivoExisteYNoVacio(const char *nombreArchivo);
+bool validarNombreYCategoria(const char *entrada);
+bool validarNumeroPositivo(int numero);
+bool validarPrecioUnitario(double precio);
+
+// Declaración de las demás funciones
 void importarDatosDesdeArchivo(importacionDatos *datos, const char *rutaArchivo);
 void opcionAgregarVenta(); // Función para insertar datos manualmente
-bool archivoExisteYNoVacio(const char *nombreArchivo);
 void agregarVenta(importacionDatos venta);
 void borrarContenidoVentasJson();
+void solicitarFecha(importacionDatos *venta);
 
 #endif // IMPORTACION_DATOS_H

@@ -74,25 +74,21 @@ void subMenuImportacionDatos()
         switch (opcion)
         {
         case 1:
-            printf("Llego a agregar datos");
             opcionAgregarVenta(); // Función para insertar datos manualmente
 
             break;
         case 2:
-            printf("Llego a importardatos");
-            importarDatosDesdeArchivo(&importacion, "data/ventas.json"); // Función para importar desde un archivo JSON
-
+            // Función para importar desde un archivo JSON
+            importarDatosDesdeArchivo(&importacion, "../data/ventas.json");
             break;
         case 3:
-            printf("Datos borrados");
             borrarContenidoVentasJson();
-            importarDatosDesdeArchivo(&importacion, "data/ventas.json"); // Función para importar desde un archivo JSON
             break;
         case 0:
             continuar = false;
             break;
         default:
-            printf("Opcion no válida. Intente de nuevo.\n");
+            printf("Opcion no valida. Intente de nuevo.\n");
             break;
         }
     }
@@ -131,12 +127,12 @@ int main()
             continuar = false;
             break;
         default:
-            printf("Opción no válida. Intente de nuevo.\n");
+            printf("Opcion no valida. Intente de nuevo.\n");
             break;
         }
     }
 
-    printf("Gracias por usar el programa. ¡Hasta luego!\n");
+    printf("Gracias por usar el programa.\n");
 
     return 0;
 }

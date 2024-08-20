@@ -1,0 +1,19 @@
+[{
+		"venta_id":	1,
+		"fecha":	"2024-10-12",
+		"producto_id":	1,
+		"producto_nombre":	"Cigarro",
+		"categoria":	"Fumadores",
+		"cantidad":	0,
+		"precio_unitario":	0,
+		"total":	0
+	}, {
+		"venta_id":	2,
+		"fecha":	"2024-11-01",
+		"producto_id":	2,
+		"producto_nombre":	"Banano",
+		"categoria":	"Fruta",
+		"cantidad":	460,
+		"precio_unitario":	25,
+		"total":	11500
+	}]
