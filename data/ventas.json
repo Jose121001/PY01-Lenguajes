@@ -16,4 +16,13 @@
 		"cantidad":	460,
 		"precio_unitario":	25,
 		"total":	11500
+	}, {
+		"venta_id":	44,
+		"fecha":	"2000-01-01",
+		"producto_id":	44,
+		"producto_nombre":	"Canasta de frutas",
+		"categoria":	"Frutos",
+		"cantidad":	40,
+		"precio_unitario":	2000,
+		"total":	80000
 	}]

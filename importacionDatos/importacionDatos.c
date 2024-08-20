@@ -52,7 +52,7 @@ void importarDatosDesdeArchivo(importacionDatos *datos, const char *rutaArchivo)
         double total = cJSON_GetObjectItem(venta, "total")->valuedouble;
 
         // Muestra los datos de la venta para verificar
-        printf("\nVenta ID: %d, Fecha: %s, Producto ID: %d, Producto: %s, Categoría: %s, Cantidad: %d, Precio Unitario: %.2f, Total: %.2f\n\n",
+        printf("\nVenta ID: %d, Fecha: %s, Producto ID: %d, Producto: %s, Categoria: %s, Cantidad: %d, Precio Unitario: %.2f, Total: %.2f\n\n",
                venta_id, fecha, producto_id, producto_nombre, categoria, cantidad, precio_unitario, total);
     }
 
