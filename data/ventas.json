@@ -1,28 +1,55 @@
 [{
 		"venta_id":	1,
-		"fecha":	"2024-10-12",
-		"producto_id":	1,
-		"producto_nombre":	"Cigarro",
-		"categoria":	"Fumadores",
-		"cantidad":	0,
-		"precio_unitario":	0,
-		"total":	0
+		"fecha":	"2021-10-12",
+		"producto_id":	4240244,
+		"producto_nombre":	"Sabana blanca",
+		"categoria":	"Objeto para dormir",
+		"cantidad":	45,
+		"precio_unitario":	1983,
+		"total":	89235
 	}, {
 		"venta_id":	2,
-		"fecha":	"2024-11-01",
-		"producto_id":	2,
-		"producto_nombre":	"Banano",
-		"categoria":	"Fruta",
-		"cantidad":	460,
-		"precio_unitario":	25,
-		"total":	11500
+		"fecha":	"2022-10-12",
+		"producto_id":	4240244,
+		"producto_nombre":	"Almohada zuli",
+		"categoria":	"MMM",
+		"cantidad":	45,
+		"precio_unitario":	4000,
+		"total":	180000
 	}, {
-		"venta_id":	44,
-		"fecha":	"2000-01-01",
-		"producto_id":	44,
-		"producto_nombre":	"Canasta de frutas",
-		"categoria":	"Frutos",
-		"cantidad":	40,
-		"precio_unitario":	2000,
-		"total":	80000
+		"venta_id":	3,
+		"fecha":	"2023-10-12",
+		"producto_id":	4240244,
+		"producto_nombre":	"una pipa",
+		"categoria":	"pipa mojada",
+		"cantidad":	45,
+		"precio_unitario":	1000,
+		"total":	45000
+	}, {
+		"venta_id":	69,
+		"fecha":	"2024-10-12",
+		"producto_id":	4240244,
+		"producto_nombre":	"agua enbotellada",
+		"categoria":	"agua",
+		"cantidad":	45,
+		"precio_unitario":	950,
+		"total":	42750
+	}, {
+		"venta_id":	55,
+		"fecha":	"2025-10-12",
+		"producto_id":	666,
+		"producto_nombre":	"bebe vivo",
+		"categoria":	"bebe",
+		"cantidad":	45,
+		"precio_unitario":	1983,
+		"total":	89235
+	}, {
+		"venta_id":	1,
+		"fecha":	"2026-12-10",
+		"producto_id":	4240244,
+		"producto_nombre":	"d",
+		"categoria":	"Gay",
+		"cantidad":	20,
+		"precio_unitario":	1983,
+		"total":	39660
 	}]

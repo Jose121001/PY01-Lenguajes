@@ -143,7 +143,7 @@ void subMenuProcesamientoDatos()
         switch (opcion)
         {
         case 1:
-            printf("Se ingreso a la opcion 1");
+            completarCeros();
 
             break;
         case 2:
