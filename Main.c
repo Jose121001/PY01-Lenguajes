@@ -126,10 +126,6 @@ void subMenuProcesamientoDatos()
 {
     int opcion;
     bool continuar = true;
-
-    // Declaración de la variable importacion
-    // importacionDatos importacion;
-
     while (continuar)
     {
 
@@ -148,6 +144,42 @@ void subMenuProcesamientoDatos()
             break;
         case 2:
             borrarDuplicados();
+
+            break;
+        case 0:
+            continuar = false;
+            break;
+        default:
+            printf("Opcion no valida. Intente de nuevo.\n");
+            break;
+        }
+    }
+}
+
+// Menu de analisis de datos
+void subMenuAnalisisDatos()
+{
+    int opcion;
+    bool continuar = true;
+    while (continuar)
+    {
+
+        printf("\n--- Submenu de Analisis de Datos ---\n");
+        printf("1. Total de ventas.\n");
+        printf("2. Total de ventas mensuales y anuales.  \n");
+        printf("0. Volver al menu principal\n");
+        printf("Seleccione una opcion: ");
+        scanf("%d", &opcion);
+        opcion = leerOpcionNumerica(); // Leer opción válida
+        switch (opcion)
+        {
+        case 1:
+            // completarCeros();
+            printf("hoy");
+
+            break;
+        case 2:
+            // borrarDuplicados();
 
             break;
         case 0:
@@ -181,7 +213,7 @@ int main()
             subMenuProcesamientoDatos();
             break;
         case 3:
-            // subMenuAnalisisDatos();
+            subMenuAnalisisDatos();
             break;
         case 4:
             // Submenú para el análisis temporal (puedes agregarlo según necesites)
