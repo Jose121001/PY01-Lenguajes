@@ -1,6 +1,7 @@
 #include "importacionDatos/importacionDatos.h"
 #include "procesamientoDatos/procesamientoDatos.h"
 #include "analisisDatos/analisisDatos.h"
+#include "analisisDatosTemporales/analisisDatosTemporales.h"
 #include "estadisticas/estadisticas.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -193,6 +194,55 @@ void subMenuAnalisisDatos()
         }
     }
 }
+
+// SubMenu de temporales datos
+void subMenuAnalisisDatosTemporales()
+{ // Declaramos las variables d eprimero.
+
+    char fechaInicio[11], fechaFin[11];
+    int trimestre, anio;
+    int opcion;
+    bool continuar = true;
+    while (continuar)
+    {
+
+        printf("\n--- Submenu de Analisis de Datos ---\n");
+        printf("1. Mes con mayor venta (total) y dia de la semana mas activo.\n");
+        printf("2. Calcular la tasa de crecimiento o decrecimiento\n");
+        printf("0. Volver al menu principal\n");
+        printf("Seleccione una opcion: ");
+        scanf("%d", &opcion);
+        opcion = leerOpcionNumerica(); // Leer opción válida
+        switch (opcion)
+        {
+        case 1:
+            printf("Ingrese la fecha de inicio (YYYY-MM-DD): ");
+            scanf("%s", fechaInicio);
+            printf("Ingrese la fecha de fin (YYYY-MM-DD): ");
+            scanf("%s", fechaFin);
+
+            mesMayorVentaDiaActivo(fechaInicio, fechaFin);
+            break;
+
+        case 2:
+            printf("Ingrese el trimestre (1-4): ");
+            scanf("%d", &trimestre);
+
+            printf("Ingrese el ano: ");
+            scanf("%d", &anio);
+
+            calcularTasaCrecimiento(trimestre, anio);
+
+            break;
+        case 0:
+            continuar = false;
+            break;
+        default:
+            printf("Opcion no valida. Intente de nuevo.\n");
+            break;
+        }
+    }
+}
 // Función principal
 
 // Función principal para manejar el flujo del programa
@@ -218,8 +268,7 @@ int main()
             subMenuAnalisisDatos();
             break;
         case 4:
-            // Submenú para el análisis temporal (puedes agregarlo según necesites)
-            break;
+            subMenuAnalisisDatosTemporales();
         case 5:
             // subMenuEstadisticas();
             break;

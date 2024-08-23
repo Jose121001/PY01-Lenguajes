@@ -1,55 +1,37 @@
 [{
 		"venta_id":	1,
-		"fecha":	"2021-10-12",
-		"producto_id":	4240244,
-		"producto_nombre":	"Sabana blanca",
-		"categoria":	"Objeto para dormir",
-		"cantidad":	45,
-		"precio_unitario":	1983,
-		"total":	89235
+		"fecha":	"2024-01-01",
+		"producto_id":	1,
+		"producto_nombre":	"Chupones",
+		"categoria":	"Bebes",
+		"cantidad":	203,
+		"precio_unitario":	2000,
+		"total":	406000
 	}, {
 		"venta_id":	2,
-		"fecha":	"2022-10-12",
-		"producto_id":	4240244,
-		"producto_nombre":	"Almohada zuli",
-		"categoria":	"MMM",
-		"cantidad":	45,
+		"fecha":	"2024-05-10",
+		"producto_id":	4244340,
+		"producto_nombre":	"Panales",
+		"categoria":	"bebes",
+		"cantidad":	405,
 		"precio_unitario":	4000,
-		"total":	180000
+		"total":	1620000
 	}, {
-		"venta_id":	3,
-		"fecha":	"2023-10-12",
-		"producto_id":	4240244,
-		"producto_nombre":	"una pipa",
-		"categoria":	"pipa mojada",
-		"cantidad":	45,
+		"venta_id":	444,
+		"fecha":	"2023-12-20",
+		"producto_id":	4,
+		"producto_nombre":	"r",
+		"categoria":	"bebes",
+		"cantidad":	236,
+		"precio_unitario":	2333,
+		"total":	550588
+	}, {
+		"venta_id":	5,
+		"fecha":	"2024-12-15",
+		"producto_id":	44,
+		"producto_nombre":	"papalote",
+		"categoria":	"juguete",
+		"cantidad":	100,
 		"precio_unitario":	1000,
-		"total":	45000
-	}, {
-		"venta_id":	69,
-		"fecha":	"2024-10-12",
-		"producto_id":	4240244,
-		"producto_nombre":	"agua enbotellada",
-		"categoria":	"agua",
-		"cantidad":	45,
-		"precio_unitario":	950,
-		"total":	42750
-	}, {
-		"venta_id":	55,
-		"fecha":	"2025-10-12",
-		"producto_id":	666,
-		"producto_nombre":	"bebe vivo",
-		"categoria":	"bebe",
-		"cantidad":	45,
-		"precio_unitario":	1983,
-		"total":	89235
-	}, {
-		"venta_id":	1,
-		"fecha":	"2026-12-10",
-		"producto_id":	4240244,
-		"producto_nombre":	"d",
-		"categoria":	"Gay",
-		"cantidad":	20,
-		"precio_unitario":	1983,
-		"total":	39660
+		"total":	100000
 	}]
