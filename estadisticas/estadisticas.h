@@ -1,5 +1,6 @@
-#ifndef ESTADISTICAS_H // Guardas de inclusión para evitar múltiples inclusiones
+#ifndef ESTADISTICAS_H
 #define ESTADISTICAS_H
 
-// Delcaraciones
+void topCincoCate();
+
 #endif // ESTADISTICAS_H

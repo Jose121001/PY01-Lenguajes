@@ -270,7 +270,7 @@ int main()
         case 4:
             subMenuAnalisisDatosTemporales();
         case 5:
-            // subMenuEstadisticas();
+            topCincoCate();
             break;
         case 0:
             continuar = false;
