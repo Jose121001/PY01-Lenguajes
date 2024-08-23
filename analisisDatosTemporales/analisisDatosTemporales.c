@@ -39,7 +39,7 @@ void mesMayorVentaDiaActivo(const char *fechaInicio, const char *fechaFinal)
     free(contenido);
 
     // Convertimos las fechas de inicio y fin a estructuras de tiempo
-    // Codigo brindado pro chat
+    // Codigo brindado por chat
     struct tm tmInicio = {0}, tmFin = {0};
     parseFecha(fechaInicio, &tmInicio);
     parseFecha(fechaFinal, &tmFin);
