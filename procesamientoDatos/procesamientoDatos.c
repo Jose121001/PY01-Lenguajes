@@ -152,12 +152,15 @@ void completarCeros()
                 int cantidad = (i % 2 == 0) ? round(mediaCantidad) : round(medianaCantidad);
                 // ReplaceItem nos permite cambiar un dato de una seccion especifica de un json.
                 cJSON_ReplaceItemInObject(venta, "cantidad", cJSON_CreateNumber(cantidad));
+                printf("Cantidad actualizada para venta ID %d: %d\n", cJSON_GetObjectItem(venta, "venta_id")->valueint, cantidad);
             }
 
             if (precioItem->valuedouble == 0)
             {
                 int precio = (i % 2 == 0) ? round(mediaPrecio) : round(medianaPrecio);
                 cJSON_ReplaceItemInObject(venta, "precio_unitario", cJSON_CreateNumber(precio));
+                // me muestra el cambio.
+                printf("Precio unitario actualizado para venta ID %d: %d\n", cJSON_GetObjectItem(venta, "venta_id")->valueint, precio);
             }
 
             // Recalcular el total con los valores completados
@@ -165,6 +168,7 @@ void completarCeros()
             int nuevoPrecio = round(cJSON_GetObjectItem(venta, "precio_unitario")->valuedouble);
             int nuevoTotal = nuevaCantidad * nuevoPrecio;
             cJSON_ReplaceItemInObject(venta, "total", cJSON_CreateNumber(nuevoTotal));
+            printf("Total actualizado para venta ID %d: %d\n", cJSON_GetObjectItem(venta, "venta_id")->valueint, nuevoTotal);
         }
     }
 

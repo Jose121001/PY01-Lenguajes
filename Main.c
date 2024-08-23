@@ -174,12 +174,14 @@ void subMenuAnalisisDatos()
         switch (opcion)
         {
         case 1:
-            // completarCeros();
+            calculoTotalVentas();
             printf("hoy");
 
             break;
         case 2:
-            // borrarDuplicados();
+            totalAnual();
+            printf("\n");
+            totalMensual();
 
             break;
         case 0:

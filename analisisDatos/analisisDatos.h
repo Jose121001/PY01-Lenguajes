@@ -2,4 +2,8 @@
 #define ANALISIS_DATOS_H
 
 // Aquí van tus declaraciones y definiciones
+void calculoTotalVentas();
+void totalAnual();
+void totalMensual();
+
 #endif // ANALISIS_DATOS_H
