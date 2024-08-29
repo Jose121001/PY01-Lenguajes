@@ -1,55 +1,56 @@
+
 [{
-		"venta_id":	1,
-		"fecha":	"2020-10-01",
-		"producto_id":	1,
-		"producto_nombre":	"Jugo de manzana",
-		"categoria":	"Bebidas",
-		"cantidad":	30,
-		"precio_unitario":	1250,
-		"total":	37500
-	}, {
-		"venta_id":	2,
-		"fecha":	"2021-10-01",
-		"producto_id":	2,
-		"producto_nombre":	"Agua de naranja",
-		"categoria":	"bebidas",
-		"cantidad":	40,
-		"precio_unitario":	40000,
-		"total":	1600000
-	}, {
-		"venta_id":	2023,
-		"fecha":	"2023-08-08",
-		"producto_id":	3,
-		"producto_nombre":	"Bate de beisbol",
-		"categoria":	"Deporte",
-		"cantidad":	12,
-		"precio_unitario":	40000,
-		"total":	480000
-	}, {
-		"venta_id":	2029,
-		"fecha":	"2029-08-10",
-		"producto_id":	9,
-		"producto_nombre":	"Naranja",
-		"categoria":	"Frutas",
-		"cantidad":	200,
-		"precio_unitario":	40000,
-		"total":	8000000
-	}, {
-		"venta_id":	2024,
-		"fecha":	"2024-01-02",
-		"producto_id":	4,
-		"producto_nombre":	"gorra",
-		"categoria":	"vestimenta",
-		"cantidad":	64,
-		"precio_unitario":	3000,
-		"total":	192000
-	}, {
-		"venta_id":	3,
-		"fecha":	"2025-01-01",
-		"producto_id":	3,
-		"producto_nombre":	"PC",
-		"categoria":	"Computador",
-		"cantidad":	40,
-		"precio_unitario":	400000,
-		"total":	16000000
-	}]
+	"venta_id":	1,
+	"fecha":	"2020-10-01",
+	"producto_id":	1,
+	"producto_nombre":	"Jugo de manzana",
+	"categoria":	"Bebidas",
+	"cantidad":	30,
+	"precio_unitario":	1250,
+	"total":	37500
+}, {
+	"venta_id":	2,
+	"fecha":	"2021-10-01",
+	"producto_id":	2,
+	"producto_nombre":	"Agua de naranja",
+	"categoria":	"bebidas",
+	"cantidad":	40,
+	"precio_unitario":	40000,
+	"total":	1600000
+}, {
+	"venta_id":	2023,
+	"fecha":	"2023-08-08",
+	"producto_id":	3,
+	"producto_nombre":	"Bate de beisbol",
+	"categoria":	"Deporte",
+	"cantidad":	12,
+	"precio_unitario":	40000,
+	"total":	480000
+}, {
+	"venta_id":	2029,
+	"fecha":	"2029-08-10",
+	"producto_id":	9,
+	"producto_nombre":	"Naranja",
+	"categoria":	"Frutas",
+	"cantidad":	200,
+	"precio_unitario":	40000,
+	"total":	8000000
+}, {
+	"venta_id":	2024,
+	"fecha":	"2024-01-02",
+	"producto_id":	4,
+	"producto_nombre":	"gorra",
+	"categoria":	"vestimenta",
+	"cantidad":	64,
+	"precio_unitario":	3000,
+	"total":	192000
+}, {
+	"venta_id":	3,
+	"fecha":	"2025-01-01",
+	"producto_id":	3,
+	"producto_nombre":	"PC",
+	"categoria":	"Computador",
+	"cantidad":	40,
+	"precio_unitario":	400000,
+	"total":	16000000
+}]
