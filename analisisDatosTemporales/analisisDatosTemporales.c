@@ -8,6 +8,7 @@
 #include <ctype.h>   // Para isdigit
 #include <time.h>    //Permite trabajar con las fechas
 
+// Funcion que recibe una fehc ainicio y una fecha final para el calculo de mayor venta.
 void mesMayorVentaDiaActivo(const char *fechaInicio, const char *fechaFinal)
 {
 
@@ -134,18 +135,18 @@ void mesMayorVentaDiaActivo(const char *fechaInicio, const char *fechaFinal)
     // OUTPUT
     printf("\nEl mes con mayor venta dentro del rango es: %d-%d con un total de %.2f\n", mesMaximo, anioMaximo, maxVenta);
     const char *dias[] = {"Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"};
-    printf("\nEl diaa de la semana mas activo dentro del rango es: %s con %d transacciones\n", dias[diaSemanaActivo], maxTransacciones);
+    printf("\nEl dia de la semana mas activo dentro del rango es: %s con %d transacciones\n", dias[diaSemanaActivo], maxTransacciones);
 
     cJSON_Delete(ventasArray);
 }
-// Me parsea la fecha
+// funcion para parsear la fecha
 void parseFecha(const char *fecha, struct tm *tmFecha)
 {
     sscanf(fecha, "%d-%d-%d", &tmFecha->tm_year, &tmFecha->tm_mon, &tmFecha->tm_mday);
     tmFecha->tm_year -= 1900; // Ajusta el año para struct tm
     tmFecha->tm_mon -= 1;     // Ajusta el mes (0-11 en struct tm)
 }
-// Me permite calcular el total por trismestres
+// Me permite calcular el total por trismestres recibiendo un entero y el anual
 void calcularTasaCrecimiento(int trimestre, int anio)
 {
     const char *nombreArchivo = "../data/ventas.json";
@@ -272,7 +273,7 @@ void calcularTasaCrecimiento(int trimestre, int anio)
     else
     {
         double tasaCrecimiento = ((ventasTrimestreActual - ventasTrimestreAnterior) / ventasTrimestreAnterior) * 100;
-        printf("La tasa de crecimiento o decrecimiento es: %.2f%%\n", tasaCrecimiento);
+        printf("\nLa tasa de crecimiento o decrecimiento es: %.2f%%\n", tasaCrecimiento);
     }
 
     cJSON_Delete(ventasArray);

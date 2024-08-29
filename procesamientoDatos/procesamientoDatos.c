@@ -91,7 +91,7 @@ void borrarDuplicados()
     cJSON_Delete(ventasArray);
     cJSON_Delete(ventasSinDuplicados);
 
-    printf("Duplicados eliminados correctamente.\n");
+    printf("\nDuplicados eliminados correctamente.\n");
 }
 // Funcion que permite completar los datos en 0 en el json
 void completarCeros()

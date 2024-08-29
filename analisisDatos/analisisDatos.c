@@ -7,6 +7,7 @@
 #include <string.h>  // Para strlen, strtok, strdup
 #include <ctype.h>   // Para isdigit
 
+// Funcion que permite calcular el total de ventas sumando todo el total
 void calculoTotalVentas()
 {
 
@@ -52,7 +53,7 @@ void calculoTotalVentas()
         }
     }
 
-    printf("El total de ventas es: %.2f\n", totalVentas);
+    printf("\nEl total de ventas es: %.2f\n", totalVentas);
     // Liberamos la memoria
     cJSON_Delete(ventasArray);
 }
@@ -136,10 +137,10 @@ void totalAnual()
         }
     }
     // Mostramos los totales por año
-    printf("\nTotal de ventas por ano:\n");
+    printf("\nTotal de ventas por anualidad:\n");
     for (int i = 0; i < cantidadAnios; i++)
     {
-        printf("year %d: %.2f\n", totales[i].anio, totales[i].total);
+        printf("anualidad %d: %.2f\n", totales[i].anio, totales[i].total);
     }
 
     cJSON_Delete(ventasArray);
@@ -220,10 +221,10 @@ void totalMensual()
     }
 
     // Mostrar los totales por mes y año
-    printf("\nTotal de ventas por mes y ano:\n");
+    printf("\nTotal de ventas por mes y anualidad:\n");
     for (int i = 0; i < cantidadMes; i++)
     {
-        printf("El total del mes %d del ano %d es: %.2f\n", totales[i].mes, totales[i].anio, totales[i].total);
+        printf("El total del mes %d de la anualidad %d es: %.2f\n", totales[i].mes, totales[i].anio, totales[i].total);
     }
 
     cJSON_Delete(ventasArray);

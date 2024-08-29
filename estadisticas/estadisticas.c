@@ -90,7 +90,7 @@ void topCincoCate()
     qsort(categorias, totalCategorias, sizeof(CategoriaTotal), compararCategorias);
 
     // Mostramos el top 5
-    printf("Top 5 categorias con mayores ventas:\n");
+    printf("\nTop 5 categorias con mayores ventas:\n");
     for (int i = 0; i < 5 && i < totalCategorias; i++)
     {
         printf("%d. Categoria: %s - Total Ventas: %.2f\n", i + 1, categorias[i].categoria, categorias[i].totalVentas);

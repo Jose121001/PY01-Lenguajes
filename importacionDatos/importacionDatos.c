@@ -10,7 +10,7 @@
 // Nombre del archivo JSON (declarado globalmente)
 const char *nombreArchivo = "../data/ventas.json";
 
-// Funcion para importar datos desde un JSON.
+// Funcion para importar datos desde un JSON.Recibe el dato y la ruta de archivo
 void importarDatosDesdeArchivo(importacionDatos *datos, const char *rutaArchivo)
 {
     FILE *archivo = fopen(rutaArchivo, "r"); // Abre el archivo de ruta para read
@@ -297,7 +297,7 @@ void solicitarFecha(importacionDatos *venta)
         }
         else
         {
-            printf("Fecha inválida. Asegurese de que sigue el formato yyyy-mm-dd y que los valores son validos.\n");
+            printf("Fecha invalida. Asegurese de que sigue el formato yyyy-mm-dd y que los valores son validos.\n");
             free(venta->fecha); // Libera la memoria si la fecha no es válida
         }
     }
